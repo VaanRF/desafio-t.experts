@@ -21,7 +21,7 @@
 -- Se os valores forem diferentes: 
 escreva 'Tente de novo' (Com a exceção do resultado ser de números iguais)
 
-##Solução
+# Solução
 Primeiramente criei uma função que gerava o Array Dinamico e uma função que comparava os elementos do array, entre eles mesmos 
 e entre o array atual e o anterior e uma função para salvar o estado do array para comparar com o novo e finalmente, uma função que 
 roda o script 10 vezes, gera um novo array, compara os arrays, conta, mostra o resultado, salva o estado anterior e roda de novo.
