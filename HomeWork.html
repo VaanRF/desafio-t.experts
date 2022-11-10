@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Home Work</h1>
+        <h1># Fase 1</h1>
+            <p> 
+                - crie um array dinâmico com três posições [2,1,2]
+                - crie uma iteração que retorne números aleatórios entre 1 e 3
+                - a cada retorno, altere o valor do array respectivamente
+            </p>
+    
+    <h1># Fase 2</h1>
+            <p>
+                - utilize as linhas já codificadas e insira em uma função
+                - crie uma verificação que identifica se os números do array são iguais
+                - Se sim: escreva 'Porta 1: aberta'
+                - Se não: escreva 'Tente de novo!'
+            </p>
+
+    <h1># Fase 3</h1>
+            <p>
+                - crie uma variável de controle para acumular a quantidade de vezes que os números se repetem
+                - crie uma variável que armazene o valor do último sorteio
+                - compare a valor do último sorteio com o valor do sorteio atual
+                -- Se os valores forem iguais: escreva 'Porta (x)' : aberta
+                -- Se os valores forem diferentes:
+                escreva 'Tente de novo' (Com a exceção do resultado ser de números iguais)
+            </p>
+        
+    <button onclick="start()">Iniciar</button>
+    <button onclick="document.location.reload(true);">Zerar o Console</button>
+    <h2>Abra o console para ver os resultados</h2>
+</body>
+<script>
+
+    let dinamicoArray = []
+    let porta = 0
+    let count = 0
+
+    //gera aleatoriamente o Array
+    function geraArray() {
+        for (let i = 0; i < 3; i++) {
+            let sorteio = parseInt(Math.random() * 3) + 1
+            dinamicoArray[i] = sorteio
+        }
+    }
+
+    //compara os elementos dos arrays, entre eles mesmos e entre o array atual e o anterior
+    function comparaArray() {
+            if (dinamicoArray[0] === dinamicoArray[1] && dinamicoArray[0] === dinamicoArray[2] || dinamicoArray[0] === ultimoDinamicoArray[0] && dinamicoArray[1] === ultimoDinamicoArray[1] && dinamicoArray[2] === ultimoDinamicoArray[2]) {
+                porta++
+                count++
+                console.log(`Porta ${porta}: Aberta`)
+            }else{
+                count++
+                console.log('Tente de novo');
+            }
+        }
+ 
+    //função auxiliar, apenas para salvar o estado do array anterior
+    let ultimoDinamicoArray = []
+    function salvaUltimoArray() {
+        ultimoDinamicoArray[0] = dinamicoArray[0]
+        ultimoDinamicoArray[1] = dinamicoArray[1]
+        ultimoDinamicoArray[2] = dinamicoArray[2]
+    }
+
+
+    //função principal que chama todas as funções
+    function start() {
+        for (i = 0; i < 10; i++) {
+            console.log(`O Array gerado na anterior foi ${ultimoDinamicoArray}`);
+
+            geraArray()
+
+            console.log(`O Array Gerado foi ${dinamicoArray}`);
+            comparaArray()
+            salvaUltimoArray()
+            console.log('-------------------');
+
+        }if(porta == 3){
+            console.log('Você abriu as 3 portas em 10 tentativas');
+        }if(count == 10){
+            console.log('Você não abriu as 3 portas em 10 tentativas');
+        }else{return null}
+    }
+
+
+
+</script>
+</html>
